@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Malware Analysis Process"
+title: "PMAT labs intro"
 date: 2025-05-01 00:00:00 +0000
-categories: [PMAT]
-tags: [reverse, malware-analysis]
+category : [Reverse, PMAT]
+tags: reverse, malware-analysis
 mermaid: true
 ---
 
