@@ -35,3 +35,5 @@ Feel free to suggest additional resources or share your experiences!
 
 ## Ressources to check :
 - https://evasions.checkpoint.com
+- https://yaraify.abuse.ch/yarahub/
+- https://malpedia.caad.fkie.fraunhofer.de/
