@@ -1,12 +1,14 @@
 ---
 layout: post
-title: "stage2 Analysis"
+title: "stage 2 Analysis"
 date: 2025-06-07 00:00:00 +0000
 category : [Reverse, OALAB]
 tags: reverse, malware-analysis
 ---
 
 # stage 2 x64 extracted   
+
+The goal is to get an overview of the techniques and process for a malware analysis and not to create a complete analysis report : 
 
 ## part one
 
@@ -206,3 +208,50 @@ So basically this one will encode our buffer in url encoding (don't forget that 
 ## part three
 
 Basically this part will be about dynamic analysis, to verify our static analysis is correct : 
+
+### Rebase program in IDA
+
+First we need to sync ida and x32dbg, to do so we get the base address loaded in x32dbg (in Memory Section) and in in rebase the program (in `Edit` -> `Segments` -> `Rebase Program...`)
+
+x32dbg base address :
+![ida40](/assets/images/DLL/ida40.png)
+
+ida rebase program:
+
+![ida42](/assets/images/DLL/ida42.png)
+
+### Verify behavior 
+
+Let's verify the behavior of an intresting part of our malware, let's say we want to check what's really requested from the malwaer. As we've sync ida and x32dbg we can get HttpSendRequestA address :
+
+![ida41](/assets/images/DLL/ida41.png)
+
+In x32dbg we can search an address with `Ctrl+g` and enter the address, after that we can set breakpoint, (we can also put comment with `;`) : 
+
+![ida43](/assets/images/DLL/ida43.png)
+
+#### Modify if statement
+
+Just before we can execute it we need to trick the malware because it can't kill the processes it's targeting so we need to jump into an if statement :
+
+![ida44](/assets/images/DLL/ida44.png)
+
+So we got the address, when reaching the breakpoint we can double click of ZF to modify the jump effect :
+
+![ida45](/assets/images/DLL/ida45.png)
+
+The result is as follow :
+
+![ida46](/assets/images/DLL/ida46.png)
+
+So now we can see arguments just before calling the function :
+
+![ida47](/assets/images/DLL/ida47.png)
+
+And we can check eax to see there is a 1 so function returned successfully,
+
+Finally we can double check what happened with txt or pcap logs from fakenet to see the request that was made:
+
+![ida48](/assets/images/DLL/ida48.png)
+
+

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DLL Analysis"
+title: "stage 1 Analysis"
 date: 2025-06-06 00:00:00 +0000
 category : [Reverse, OALAB]
 tags: reverse, malware-analysis, dll
