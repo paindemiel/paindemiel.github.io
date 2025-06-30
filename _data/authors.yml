@@ -1,0 +1,27 @@
+# Authors configuration for multiple authors support
+# Each author should have a unique key and the following properties:
+# - name: Full name of the author
+# - email: Email address (optional)
+# - bio: Short biography (optional)
+# - links: Social media links (optional)
+
+p12miel:
+  name: p12miel
+  email: sq.march135@passmail.net
+  bio: "Reverse engineering enthusiast and malware analyst"
+  links:
+    - https://github.com/paindemiel
+
+Maxime:
+  name: Maxime
+  email: test
+  bio: test
+  links:
+    - test
+
+Vincent:
+  name: Vincent
+  email: test
+  bio: test
+  links:
+    - test

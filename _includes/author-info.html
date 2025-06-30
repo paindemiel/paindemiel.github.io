@@ -1,0 +1,15 @@
+{% if page.author_info %}
+<div class="author-info" style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px;">
+  <h4 style="margin: 0 0 10px 0; color: #333;">Author: {{ page.author_info.name }}</h4>
+  {% if page.author_info.bio %}
+  <p style="margin: 0 0 10px 0; color: #666;">{{ page.author_info.bio }}</p>
+  {% endif %}
+  {% if page.author_info.links %}
+  <div class="author-links">
+    {% for link in page.author_info.links %}
+    <a href="{{ link }}" target="_blank" style="margin-right: 10px; color: #007bff; text-decoration: none;">{{ link | split: '/' | last }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %} 
