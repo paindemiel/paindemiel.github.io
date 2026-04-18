@@ -18,11 +18,11 @@ markup:
 
 menu:
   main:
-    - name: Docs
-      pageRef: /docs
+    - name: Homelab
+      pageRef: /Homelab
       weight: 1
-    - name: About
-      pageRef: /about
+    - name: Cyber security
+      pageRef: /CyberSecurity
       weight: 2
     - name: Search
       weight: 3
