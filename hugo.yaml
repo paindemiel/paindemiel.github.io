@@ -19,10 +19,10 @@ markup:
 menu:
   main:
     - name: Homelab
-      pageRef: /Homelab
+      pageRef: /homelab
       weight: 1
     - name: Cyber security
-      pageRef: /CyberSecurity
+      pageRef: /cybersecurity
       weight: 2
     - name: Search
       weight: 3

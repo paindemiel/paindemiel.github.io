@@ -13,6 +13,6 @@ est imprécise ou erroné c'est une erreur de ma part, donc toute remarque est l
 ## Explorer
 
 {{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" subtitle="Mes recherches et notes" >}}
-  {{< card link="about" title="About" icon="user" subtitle="À propos de moi" >}}
+  {{< card link="homelab" title="Homelab" icon="book-open" subtitle="" >}}
+  {{< card link="cybersecurity" title="Cyber sécurité" icon="book-open" subtitle="" >}}
 {{< /cards >}}
