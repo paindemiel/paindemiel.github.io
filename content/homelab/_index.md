@@ -25,37 +25,40 @@ Voici un schéma qui présente de manière grossière l'infrastructure que j'ess
 
 ```mermaid
 flowchart TB;
-  V[Internet] <--> Z;
-    W[Ludus] --> Z;
-    X[Razer] --> Z;
-    Y[Tower] --> Z;
-    Z[Box Wifi] --> FW[Firewall - Router];
-    FW --> Securité;
-    FW --> VPN;
-    FW --> Infra;
-    FW --> Applications;
+  V[Internet] <-->|x|Z;
+    X[Razer] <-->|vpn ip - todo|Z;
+    Y[Tower] <-->|192.168.1.x/24|Z;
+    Z[Box Wifi] <-->|192.168.1.x/24|FW;
 subgraph Proxmox;
+    FW[Vyos];
+    FW <-->|10.0.10.0/24|Securité;
+    FW <-->|10.0.20.0/24|DMZ;
+    FW <-->|10.0.30.0/24|Infra;
+    FW <-->|10.0.40.0/24|Applications;
     subgraph Securité;
         SIEM;
         Crowdsec;
     end;
-    subgraph VPN;
-        Headscale;
-        Vma[VM - advertising routes];
+    subgraph DMZ;
+        Caddy-dmz;
+        Forgejo-dmz;
     end;
     subgraph Infra;
         Openbao;
-        Caddy;
+        APT-cacher-ng;
         Blocky;
     end;
     subgraph Applications;
-        Forgejo;
-        Docmost;
+        Caddy-app;
+        Forgejo-app;
         Memos;
         Immich;
         Share;
     end;
-    FW --> PBS;
+end;
+  Z <-->|192.168.1.x/24|PBS;
+subgraph Proxmox-2;
+    PBS;
 end;
 ```
 
